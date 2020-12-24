@@ -25,7 +25,7 @@ before_action :authenticate_user!
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
-  
+    
   end
 
   def destroy
