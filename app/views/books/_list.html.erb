@@ -1,0 +1,44 @@
+
+
+<%= form_for(@book) do |f|%>
+<%= render 'devise/shared/error_messages', model: f.object, resource: @book %>
+<% end %>
+
+<h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+  <table class= "table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <div class="row">
+    <%= link_to '',edit_user_path(user), class:"btn btn-outline-secondary btn block fas fa-user-cog w-100" %>
+  </div>
+
+<%= form_with model: book, local:true do |f| %>
+<h2 class="mt-3">New book</h2>
+
+<div class="form-group">
+  <label for="book_title">Title</label>
+  <p><%= f.text_field :title %></p>
+</div>
+
+<div class="form-group">
+  <label for="book_opinion">Opinion</label>
+  <p><%= f.text_area :body %></p>
+</div>
+
+<div class="form-group">
+  <button type="submit" class="btn btn-success w-auto">Create Book</button>
+  <% end %>
+</div>
