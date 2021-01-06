@@ -19,14 +19,16 @@ before_action :authenticate_user!
     @books = Book.all
     @book = Book.new
     @user = User.find(current_user.id)
-    
   end
 
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
-    
+    @books_comment = BooksComment.new
+    @books_comments = @book.books_comments #bookに紐付けられたコメント
   end
+  
+
 
   def destroy
     @book = Book.find(params[:id])

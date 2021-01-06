@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books.reverse_order
     @book = Book.new
+    @favorite_books = @user.favorites
   end
   
   def new
