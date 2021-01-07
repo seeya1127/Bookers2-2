@@ -2,10 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def show
-    @user = User.find(params[:id])
-    @books = @user.books.reverse_order
-    @book = Book.new
+    @user = User.find(params[:id]) #指定のユーザーを見つける
+    @books = @user.books.reverse_order #そのユーザーの投稿を古い順で並べる
+    @book = Book.new #新規投稿用の空のインスタンス
     @favorite_books = @user.favorites
+    @user_followers = @user.followers
+    @user_follows = @user.follows
   end
   
   def new
@@ -43,6 +45,16 @@ class UsersController < ApplicationController
     else
     render :edit
     end
+  end
+  
+  def follows
+    user = User.find(params[:id])
+    @users = user.follows
+  end
+  
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
   
   private
