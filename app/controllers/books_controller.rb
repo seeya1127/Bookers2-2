@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
-    @books_comment = BooksComment.new
+    @book_comment = BooksComment.new
     @books_comments = @book.books_comments # bookに紐付けられたコメント
   end
 

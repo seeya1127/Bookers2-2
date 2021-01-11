@@ -1,2 +1,2 @@
-$(".comment_area").html("<%= escape_javascript(render partial: 'books_comments/book_comment', locals: {books_comments: @book.books_comments}) %>");
+$(".comment_area").html("<%= escape_javascript(render partial: 'books_comments/book_comment', locals: {book_comments: @book.books_comments}) %>");
 $("#books_comment_comment").val("");
