@@ -1,0 +1,14 @@
+<table>
+  <tbody>
+      <% books_comments.each do |book_comment| %>
+      <tr><td><p><%= attachment_image_tag book_comment.user, :profile_image, size: "40x40", fallback: "no_image.jpg" %></p>
+      <%= link_to book_comment.user.name, user_path(book_comment.user_id), remote: true %>
+      <td><%= book_comment.comment %></td>
+      <td>
+        <% if book_comment.user == current_user %>
+        <%= link_to "Destroy", book_books_comment_path(book_id: book_comment.book,id: book_comment.id), class:"btn btn-sm btn-danger", method: :delete, data: {confirm:'本当に消しますか？'}, remote: true %></td>
+      </td><% end %></tr>
+      
+      <% end %>
+  </tbody>
+</table>

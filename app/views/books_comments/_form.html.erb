@@ -1,0 +1,7 @@
+<%= form_with(model:[book, book_comment]) do |f| %>
+<div class="col-xs-10">
+<%= f.label :comment,"コメント" %>
+<%= f.text_area :comment, class:"form-control input-lg" %>
+</div>
+<%= f.submit '送信' %>
+<% end %>
