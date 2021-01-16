@@ -13,18 +13,17 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   
- <div>
-  <%= simple_form_for @user do |f| %>
-  <P>Postalcode</P>
-  <%= f.input :postcode,label: false %>
-  <P>Prefecture code</P>
-  <%= f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', label: false %>
-  <P>city</P>
-  <%= f.input :address_city, label: false %>
-  <P>Street</P>
-  <%= f.input :address_street, label: false %>
-<% end %>
-</div>
+     <div>
+      <%= simple_form_for @user do |f| %>
+      <P>Postalcode</P>
+      <%= f.input :postcode,label: false %>
+      <P>Prefecture code</P>
+      <%= f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', label: false %>
+      <P>city</P>
+      <%= f.input :address_city, label: false %>
+      <P>Street</P>
+      <%= f.input :address_street, label: false %>
+    </div>
 
   <div class="field">
     <%= f.label :password %>
@@ -41,6 +40,7 @@
 
   <div class="actions">
     <%= f.submit "Sign up" %>
+    <% end %>
   </div>
 <% end %>
 

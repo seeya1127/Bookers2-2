@@ -71,3 +71,5 @@ gem 'high_voltage'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 gem 'simple_form'
+
+gem 'dotenv-rails'
