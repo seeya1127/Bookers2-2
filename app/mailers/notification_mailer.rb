@@ -3,6 +3,6 @@ class NotificationMailer < ApplicationMailer
   
   def send_signup_email(user)
       @user = user
-      mail( :to => @user.email, :subject => "会員登録が完了しました。" )
+      mail(:subject => "会員登録が完了しました。",to: user.email)
   end
 end

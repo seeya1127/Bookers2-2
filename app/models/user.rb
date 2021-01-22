@@ -52,4 +52,8 @@ class User < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
+  
+  has_many :user_rooms
+  has_many :messages, dependent: :destroy
+  has_many :rooms, through: :user_rooms
 end

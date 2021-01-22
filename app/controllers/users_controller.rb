@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @favorite_books = @user.favorites
     @user_followers = @user.followers
     @user_follows = @user.follows
+    
   end
 
   def new
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(User_params)
     @user = current_user.id
     if @user.save
+      log_in @user
       NotificationMailer.send_signup_email(@user).deliver
       flash[:notice] = 'You have updated user successfully.'
       redirect_to user_path(@user.id)

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/show'
+  get 'messages/create'
   # get 'favorites/create'
   # get 'favorites/destroy'
   root to: 'homes#top'
@@ -17,4 +19,6 @@ Rails.application.routes.draw do
   end
 
   get 'search' => 'searches#search'
+  get 'message/:id' => 'messages#show', as: 'message'
+  resources :messages, only: [:create, :show]
 end
